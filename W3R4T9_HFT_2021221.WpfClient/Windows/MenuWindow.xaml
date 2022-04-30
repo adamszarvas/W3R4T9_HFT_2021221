@@ -1,0 +1,48 @@
+﻿<Window x:Class="W3R4T9_HFT_2021221.WpfClient.Windows.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:W3R4T9_HFT_2021221.WpfClient.Windows"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="450" Width="800" Background="Black">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label FontFamily="Courier New"  Margin="0,30,0,40" Content="Welcome to the editor" FontSize="50" HorizontalAlignment="Center" Foreground="White" />
+            <Label FontFamily="Courier New"  Content="Pick a table" FontSize="20" HorizontalAlignment="Center" Foreground="White" />
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button Click="Button_Click" Background="Bisque" Grid.Column="0" Width="200" Height="100" Content="Airlines" FontSize="25" FontFamily="Courier New">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Click="Button_Click_1" Background="Bisque" Grid.Column="1" Width="200" Height="100" Content="Flights" FontSize="25" FontFamily="Courier New">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Click="Button_Click_2" Background="Bisque" Grid.Column="2" Width="200" Height="100" Content="Passengers" FontSize="25" FontFamily="Courier New">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

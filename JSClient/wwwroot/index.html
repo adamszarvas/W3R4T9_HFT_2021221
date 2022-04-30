@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Airline UI</title>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+<body>
+    <h1>Flight Manager</h1>
+    
+    <div id="formdiv">
+        <label>Destination</label>
+        <input type="text" id="f_destination" />
+        <label>Origin</label>
+        <input type="text" id="f_origin" />
+        <label>Seats</label>
+        <input type="number" id="f_seats" />
+        <label>Ticket Price</label>
+        <input type="number" id="f_ticket" />
+        <button onclick="create()" type="button">Add Flight</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>Origin</th>
+                <th>Seats</th>
+                <th>Ticket Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+            
+        </tbody>
+
+
+    </table>
+
+
+
+    <script src="index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+</body>
+</html>

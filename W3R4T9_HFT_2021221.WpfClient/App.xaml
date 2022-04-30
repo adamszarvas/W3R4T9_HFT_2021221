@@ -1,0 +1,10 @@
+﻿<Application x:Class="W3R4T9_HFT_2021221.WpfClient.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:W3R4T9_HFT_2021221.WpfClient"
+             xmlns:w ="clr-namespace:W3R4T9_HFT_2021221.WpfClient.Windows"
+             StartupUri="Windows/MenuWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
