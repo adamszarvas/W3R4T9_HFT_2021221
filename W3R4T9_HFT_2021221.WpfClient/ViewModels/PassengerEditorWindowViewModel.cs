@@ -41,6 +41,7 @@ namespace W3R4T9_HFT_2021221.WpfClient.ViewModels
                     };
                     OnPropertyChanged();
                     (DeletePassenger as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdatePassenger as RelayCommand).NotifyCanExecuteChanged();
 
                 }
             }
@@ -80,7 +81,11 @@ namespace W3R4T9_HFT_2021221.WpfClient.ViewModels
                     {
                         errorMessage = e.Message;
                     }
+                },
+                () => 
+                {
 
+                    return SelectedPassenger.ID != 0;
                 });
                 
 
@@ -88,7 +93,8 @@ namespace W3R4T9_HFT_2021221.WpfClient.ViewModels
                 DeletePassenger = new RelayCommand(() =>
                 {
                     Passengers.Delete(SelectedPassenger.ID);
-                    
+                    selectedPassenger = new Passenger();
+
                 },
                 () =>
                 {

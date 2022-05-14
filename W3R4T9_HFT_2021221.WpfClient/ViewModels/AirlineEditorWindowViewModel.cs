@@ -42,6 +42,7 @@ namespace W3R4T9_HFT_2021221.WpfClient.ViewModels
                     };
                     OnPropertyChanged();
                     (DeleteAirline as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateAirline as RelayCommand).NotifyCanExecuteChanged();
                 }
             }
         }
@@ -75,12 +76,13 @@ namespace W3R4T9_HFT_2021221.WpfClient.ViewModels
                  },
                   () =>
                   {
-                      return (SelectedAirline != null);
+                      return (SelectedAirline.ID != 0);
                   });
 
                 DeleteAirline = new RelayCommand(() =>
                 {
                     Airlines.Delete(SelectedAirline.ID);
+                    selectedAirline = new Airline() { Name = "" };
                 },
                 () =>
                 {

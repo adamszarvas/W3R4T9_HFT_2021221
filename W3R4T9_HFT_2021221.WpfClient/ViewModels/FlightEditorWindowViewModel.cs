@@ -42,7 +42,8 @@ namespace W3R4T9_HFT_2021221.WpfClient.ViewModels
                     };
                     OnPropertyChanged();
                     (DeleteFlight as RelayCommand).NotifyCanExecuteChanged();
-                    
+                    (UpdateFlight as RelayCommand).NotifyCanExecuteChanged();
+
                 }
             }
         }
@@ -81,19 +82,24 @@ namespace W3R4T9_HFT_2021221.WpfClient.ViewModels
                         errorMessage = e.Message;
                     }
 
+                },
+                () =>
+                {
+                    return SelectedFlight.ID != 0;
                 });
                
 
                 DeleteFlight = new RelayCommand(() =>
                 {
                     Flights.Delete(SelectedFlight.ID);
+                    selectedFlight = new Flight() { Destination = "" };
                 },
                 () =>
                 {
                     return SelectedFlight.ID != 0;
                 });
 
-                selectedFlight = new Flight() { From = "" };
+                selectedFlight = new Flight() { Destination = "" };
         
 
             }
