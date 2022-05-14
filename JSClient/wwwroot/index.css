@@ -1,40 +1,65 @@
-﻿table{
+﻿table {
     width: 100%;
     border-collapse: collapse;
 }
-table,th,td{
+
+table, th, td {
     border: 1px solid black;
 }
-th,td{
+
+th, td {
     padding: 7px;
 }
 
-h1{
+h1 {
     text-align: center;
 }
-th{
+
+th {
     background-color: beige;
 }
 
-
-#formdiv{
-    display: flex;
+#updateformdiv {
+    display: none;
     flex-direction: column;
     margin-bottom: 10px;
 }
 
-#formdiv label,input{
-    margin: 3px;
-    padding: 5px;
+#updateformdiv label, input {
+        margin: 3px;
+        padding: 5px;
 }
 
-#formdiv lablel{
-    font-weight: bolder;
-}
+#updateformdiv lablel {
 
-#formdiv button{
+        font-weight: bolder;
+ }
+#updateformdiv button {
     padding: 6px;
     margin-bottom: 10px;
     margin-top: 10px;
 }
 
+
+
+
+#formdiv {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+ #formdiv label, input {
+        margin: 3px;
+        padding: 5px;
+ }
+
+#formdiv lablel {
+        font-weight: bolder;
+    }
+
+#formdiv button {
+        padding: 6px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }

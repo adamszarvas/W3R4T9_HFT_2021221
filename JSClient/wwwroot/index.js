@@ -1,6 +1,7 @@
 ﻿let flights = [];
 getdata()
-let connection;
+let connection = null;
+let flightIdToUpdate = -1
 setupSignalR();
 
 function setupSignalR() {
@@ -13,6 +14,9 @@ function setupSignalR() {
         getdata();
     });
     connection.on("FlightDeleted", (user, message) => {
+        getdata();
+    });
+    connection.on("FlightUpdated", (user, message) => {
         getdata();
     });
 
@@ -41,7 +45,7 @@ async function getdata() {
         .then(x => x.json())
         .then(y => {
             flights = y;
-            //console.log(flights);
+            console.log(flights);
             display();
         });
 
@@ -52,9 +56,54 @@ function display() {
 
     flights.forEach(t => {
         document.getElementById("resultarea").innerHTML +=
-            "<tr><td>" + t.destination + "</td><td>" + t.from + "</td><td>" + t.seats + "</td><td>" + t.ticketPrice + "</td><td>" + `<button type="button" onclick="remove(${t.id})">Delete</button>` + "</td></tr>"
+            "<tr><td>" + t.destination + "</td><td>" + t.from + "</td><td>" + t.seats + "</td><td>" + t.ticketPrice + "</td><td>"
+            + `<button type="button" onclick="remove(${t.id})">Delete</button>`
+            + `<button type="button" onclick="showupdate(${t.id})">Update</button>`
+            + "</td></tr>"
     });
 }
+
+function showupdate(id) {
+    document.getElementById('update_origin').value = flights.find(t => t['id'] == id)['from']
+    document.getElementById('update_destination').value = flights.find(t => t['id'] == id)['destination']
+    document.getElementById('update_seats').value = flights.find(t => t['id'] == id)['seats']
+    document.getElementById('update_ticket').value = flights.find(t => t['id'] == id)['ticketPrice']
+    document.getElementById('updateformdiv').style.display = 'flex';
+    flightIdToUpdate = id;
+}
+
+
+function update() {
+    document.getElementById('updateformdiv').style.display = 'none';
+    let destination = document.getElementById("update_destination").value;
+    let origin = document.getElementById("update_origin").value;
+    let seats = Number(document.getElementById("update_seats").value);
+    let ticket = Number(document.getElementById("update_ticket").value);
+
+
+    fetch('http://localhost:5000/Flight/', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            {
+                destination: destination,
+                from: origin,
+                seats: seats,
+                ticketPrice: ticket,
+                ID : flightIdToUpdate
+            }),
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error); });
+
+}
+
+
+
 
 function remove(id) {
     fetch('http://localhost:5000/Flight/' + id, {

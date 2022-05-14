@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Flight Manager</h1>
-    
+
     <div id="formdiv">
         <label>Destination</label>
         <input type="text" id="f_destination" />
@@ -18,6 +18,18 @@
         <label>Ticket Price</label>
         <input type="number" id="f_ticket" />
         <button onclick="create()" type="button">Add Flight</button>
+    </div>
+
+    <div id="updateformdiv">
+        <label>Destination</label>
+        <input type="text" id="update_destination" />
+        <label>Origin</label>
+        <input type="text" id="update_origin" />
+        <label>Seats</label>
+        <input type="number" id="update_seats" />
+        <label>Ticket Price</label>
+        <input type="number" id="update_ticket" />
+        <button onclick="update()" type="button">Update Flight</button>
     </div>
 
     <table>
@@ -31,15 +43,14 @@
             </tr>
         </thead>
         <tbody id="resultarea">
-            
         </tbody>
 
 
     </table>
 
 
-
-    <script src="index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="index.js"></script>
+
 </body>
 </html>
